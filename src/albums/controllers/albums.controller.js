@@ -28,7 +28,7 @@ class AlbumController {
       };
 
       const albumId = await albumModel.addAlbum(req.body);
-      console.log(albumId);
+    //   console.log(albumId);
       newAlbum.id = albumId;
       res.status(201).send(newAlbum);
     } catch (error) {
