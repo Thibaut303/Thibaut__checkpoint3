@@ -31,7 +31,8 @@ class TrackModel {
 
     async addTrack(track) {
         try {
-            const result = await this.connection.promise().query('INSERT INTO album (title, youtube_url, id_album) VALUES (?,?,?)', [track.title, track.youtube_url, track.id_album])
+            const result = await this.connection.promise().query('INSERT INTO track (title, youtube_url, id_album) VALUES (?,?,?)', 
+            [track.title, track.youtube_url, track.id_album])
             return result[0].insertId
         }
          
@@ -44,9 +45,9 @@ class TrackModel {
 
         try {
             const result = await this.connection.promise().query('UPDATE track SET title = ?, youtube_url = ?, id_album = ? WHERE id = ?',
-            [track.title, track.youtube_url, track.id_album])
-             console.log(album)
-             console.log(album.id)
+            [track.title, track.youtube_url, track.id_album, track.id])
+            //  console.log(album)
+            //  console.log(album.id)
             return result [0] 
             // [0].insertId
         }
